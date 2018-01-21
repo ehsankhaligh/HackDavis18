@@ -8,7 +8,13 @@ angular.module('myApp.requestView', ['ngRoute'])
     controller: 'RequestCtrl'
   });
 }])
+.factory("courses", ["$firebaseArray",
+  function($firebaseArray) {
+    var ref = firebase.database().ref('courses/csus/ecs/');
+    return $firebaseArray(ref);
+  }
+])
 
-.controller('RequestCtrl', [function() {
-  console.log('aaa');
+.controller('RequestCtrl', ['$scope', 'courses', function($scope, courses) {
+  $scope.courses = courses;
 }]);

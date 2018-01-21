@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Tutor Timetable</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
@@ -11,16 +11,16 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" ng-controller="NavCtrl">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <a class="navbar-brand" href="#">Tutor Timetable</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#!/request">Request</a></li>
-        <li><a href="#!/schedule">See Schedule</a></li>
-        <li><a href="#!/map">Map</a></li>
+        <li ng-class="{active: location === '/'}"><a href="#">Home</a></li>
+        <li ng-class="{active: location === '/request'}"><a href="#!/request">Request</a></li>
+        <li ng-class="{active: location === '/schedule'}"><a href="#!/schedule">See Schedule</a></li>
+        <li ng-class="{active: location === '/map'}"><a href="#!/map">Map</a></li>
       </ul>
     </div>
   </nav>
@@ -28,6 +28,8 @@
   <div ng-view></div>
 
 </body>
+<script src="components/firebase/firebase.js"></script>
+<script src="firebase.js"></script>
 <script src="components/angular/angular.js"></script>
 <script src="components/angularfire/dist/angularfire.js"></script>
 <script src="components/angular-route/angular-route.js"></script>

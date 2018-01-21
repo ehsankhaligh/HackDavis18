@@ -1,1 +1,35 @@
-<h1>Student Request Form!</h1>
+<div class="row col-md-10 col-md-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-heading">Request a Tutor</div>
+    <div class="panel-body">
+
+      <form>
+        <label for="nameInput">Your Name:</label>
+        <input required="true" id="nameInput" type="text" class="form-control"
+               placeholder="Joe Gunchy" aria-describedby="basic-addon1">
+        <br/>
+
+        <label for="emailInput">Your Name:</label>
+        <div class="input-group">
+          <input type="text" id="emailInput" class="form-control" placeholder="Recipient's username"
+                 aria-describedby="basic-addon2">
+          <span class="input-group-addon" id="basic-addon2">@csus.edu</span>
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <label for="courseSel">Select Course:</label>
+          <select class="form-control" id="courseSel">
+            <option ng-repeat="course in courses">{{course.name}}</option>
+          </select>
+        </div>
+        <br/>
+
+        <div class="btn-group" role="group" aria-label="submit">
+          <button type="button" class="btn btn-default">Choose a Tutor</button>
+          <button type="button" class="btn btn-default">Soonest Available</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
