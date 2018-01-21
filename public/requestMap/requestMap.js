@@ -5,9 +5,9 @@ angular.module('myApp.requestMap', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/map', {
     templateUrl: 'requestMap/requestMap.html',
-    controller: 'RequestCtrl'
+    controller: 'MapCtrl'
   });
 }])
 
-.controller('RequestCtrl', [function() {
+.controller('MapCtrl', [function() {
 }]);

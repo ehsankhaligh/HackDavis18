@@ -76,6 +76,7 @@ angular.module('myApp.scheduleView', ['ngRoute'])
           })
         });
         $scope.courses = Object.keys($scope.tutorsFor);
+        console.log(JSON.stringify($scope.courses));
         console.log('tutors:', $scope.tutorsFor);
       });
 

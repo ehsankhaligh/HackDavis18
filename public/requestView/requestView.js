@@ -8,12 +8,17 @@ angular.module('myApp.requestView', ['ngRoute'])
     controller: 'RequestCtrl'
   });
 }])
-.factory("courses", ["$firebaseArray",
-  function($firebaseArray) {
-    var ref = firebase.database().ref('courses/csus/ecs/');
-    return $firebaseArray(ref);
+.controller('RequestCtrl', ['$scope', '$http', function($scope, $http) {
+  console.log('yee');
+  $scope.form = {}
+  $scope.cors = ["Logic-Design", "Computer-Organization",
+    "Intelligent-Systems", "Operating-System", "Gas-Dynamics",
+    "Introduction-To-Robotics", "Thermal-Fluid-Systems", "Machine-Vision",
+    "Physical-Electronics", "Signals&Systems", "Soil-Mechanics"];
+  $scope.submitForm = function() {
+    $http.post('/api/csus/ecs', $scope.form).then((res) => {
+      alert(`You have been scheduled for ${res.data.time} with ${res.data.tutor}.`);
+    });
+    console.log($scope.form);
   }
-])
-.controller('RequestCtrl', ['$scope', 'courses', function($scope, courses) {
-  $scope.courses = courses;
 }]);
