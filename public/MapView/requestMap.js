@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.requestView', ['ngRoute'])
+angular.module('myApp.requestMap', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/request', {
-    templateUrl: 'requestView/requestView.html',
+    templateUrl: 'requestMap/requestMap.html',
     controller: 'RequestCtrl'
   });
 }])
