@@ -14,7 +14,6 @@ angular.module('myApp.requestView', ['ngRoute'])
     return $firebaseArray(ref);
   }
 ])
-
 .controller('RequestCtrl', ['$scope', 'courses', function($scope, courses) {
   $scope.courses = courses;
 }]);

@@ -2,14 +2,30 @@
   <div class="panel panel-default">
     <div class="panel-heading">Tutor Waitlist Queue</div>
     <div class="panel-body">
-      <div ng-repeat="queue in queues">
+
+      <div class="form-group">
+        <label for="courseSel">Select Course:</label>
+        <select ng-model="helpCourse" ng-required="true" class="form-control" id="courseSel">
+          <option ng-value="course" ng-repeat="course in courses">{{course}}</option>
+        </select>
+      </div>
+      <br/>
+      <!--<span>{{// queues}}</span>-->
+
+      <div ng-repeat="tutorName in tutorsFor[helpCourse]">
         <div class="row col-md-4 col-md-offset-0">
           <div class="panel panel-default">
             <div class="panel-heading">
-              {{queue.tutor.firstName +' '+queue.tutor.lastName}}
+              {{tutorName}}
             </div>
+
             <div class="panel-body">
-              <li ng-repeat="queueItem in queue.queue">{{queueItem}}</li>
+              <ul class="list-group">
+                <button class="list-group-item" ng-repeat="(startTime, reservation) in queues[tutorName]">
+                  <span class="badge">{{startTime}}</span>
+                  {{reservation}}
+                </button>
+              </ul>
             </div>
             <div class="panel-footer">
               <button class="btn btn-default">Join Queue</button>
