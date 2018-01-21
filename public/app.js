@@ -5,7 +5,8 @@ angular.module('myApp', [
   'firebase',
   'ngRoute',
   'myApp.requestView',
-  'myApp.requestMap'
+  'myApp.requestMap',
+  'myApp.scheduleView',
   // 'myApp.version'
 ]).config(['$locationProvider', '$routeProvider',
   function ($locationProvider, $routeProvider) {

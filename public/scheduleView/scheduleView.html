@@ -1,0 +1,22 @@
+<div class="row col-md-10 col-md-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-heading">Tutor Waitlist Queue</div>
+    <div class="panel-body">
+      <div ng-repeat="queue in queues">
+        <div class="row col-md-4 col-md-offset-0">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{queue.tutor.firstName +' '+queue.tutor.lastName}}
+            </div>
+            <div class="panel-body">
+              <li ng-repeat="queueItem in queue.queue">{{queueItem}}</li>
+            </div>
+            <div class="panel-footer">
+              <button class="btn btn-default">Join Queue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
