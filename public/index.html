@@ -28,6 +28,16 @@
   <div ng-view></div>
 
 </body>
+
+<script>
+  let departments = {
+    engineering: {
+      buildingCenter: [38.5606407, -121.423052],
+    },
+  };
+  department = departments['engineering'];
+</script>
+
 <script src="components/firebase/firebase.js"></script>
 <script src="firebase.js"></script>
 <script src="components/angular/angular.js"></script>
@@ -36,4 +46,5 @@
 
 <script src="app.js"></script>
 <script src="requestView/requestView.js"></script>
+<script src="requestMap/requestMap.js"></script>
 </html>

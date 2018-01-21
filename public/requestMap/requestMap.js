@@ -3,12 +3,11 @@
 angular.module('myApp.requestMap', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/request', {
+  $routeProvider.when('/map', {
     templateUrl: 'requestMap/requestMap.html',
     controller: 'RequestCtrl'
   });
 }])
 
 .controller('RequestCtrl', [function() {
-  console.log('aaa');
 }]);
