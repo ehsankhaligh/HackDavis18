@@ -21,6 +21,9 @@ app.post('/api/:school/:department/', (req, res) => {
   let school = req.params.school;
   let department = req.params.department;
 
+  app.use(bodyParser.json());
+  console.log(school, department, req.body.course, req.body.name);
+
   admin.database().ref(`tutors/${school}/${department}/`)
   .once('value', (data) => {
     let tutors = Object.keys(data.val())
@@ -33,15 +36,26 @@ app.post('/api/:school/:department/', (req, res) => {
       for (let hour of [10, 11, 12, 13, 14, 15, 16, 17]) {
         for (let minute of ['00', '15', '30', '45']) {
           for (let tutor of tutors) {
-            if (!data.val()[tutor][hour + ':' + minute]) {
+            try {
+              if (!data.val()[tutor][hour + ':' + minute]) {
+                admin.database().ref(
+                    `queues/${school}/${department}/${tutor}/${hour}:${minute}/`).set(
+                    req.body.name, () => {
+                      res.status(200);
+                      res.send({tutor: tutor, time: hour + ':' + minute});
+                      // res.send(`#!/schedule?tutor=${tutor.replace(' ', '%20')}&time=${hour + ':' + minute}`);
+                    });
+                return;
+              }
+            } catch (e) {
               admin.database().ref(
                   `queues/${school}/${department}/${tutor}/${hour}:${minute}/`).set(
                   req.body.name, () => {
                     res.status(200);
                     res.send({tutor: tutor, time: hour + ':' + minute});
                   });
+              return;
             }
-            return;
           }
         }
       }

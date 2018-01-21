@@ -2,10 +2,9 @@
   <div class="panel panel-default">
     <div class="panel-heading">Request a Tutor</div>
     <div class="panel-body">
-
-      <form>
-        <label for="nameInput">Your Name:</label>
-        <input required="true" id="nameInput" type="text" class="form-control"
+      <form ng-submit="submitForm()">
+        <label for="name">Your Name:</label>
+        <input ng-model="form.name" required="true" id="name" type="text" class="form-control"
                placeholder="Joe Gunchy" aria-describedby="basic-addon1">
         <br/>
 
@@ -16,18 +15,19 @@
           <span class="input-group-addon" id="basic-addon2">@csus.edu</span>
         </div>
         <br/>
+        <!--<span>C:{{cors}}</span>-->
 
         <div class="form-group">
-          <label for="courseSel">Select Course:</label>
-          <select class="form-control" id="courseSel">
-            <option ng-repeat="course in courses">{{course.name}}</option>
+          <label for="course">Select Course:</label>
+          <select ng-model="form.course" class="form-control" id="course">
+            <option ng-value="course" ng-repeat="course in cors">{{course}}</option>
           </select>
         </div>
         <br/>
 
         <div class="btn-group" role="group" aria-label="submit">
           <!--<button type="button" class="btn btn-default">Choose a Tutor</button>-->
-          <button type="button" class="btn btn-default">Request a Tutor</button>
+          <button type="submit" class="btn btn-default">Request a Tutor</button>
         </div>
       </form>
     </div>
