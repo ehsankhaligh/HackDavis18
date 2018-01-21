@@ -7,6 +7,7 @@ angular.module('myApp', [
   'myApp.requestView',
   'myApp.requestMap',
   'myApp.scheduleView',
+  'myApp.HomeView'
   // 'myApp.version'
 ]).config(['$locationProvider', '$routeProvider',
   function ($locationProvider, $routeProvider) {
