@@ -1,0 +1,22 @@
+{
+  "name": "tutortimetable",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "MatthewMerrill <MattMerr47@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.8"
+  }
+}
